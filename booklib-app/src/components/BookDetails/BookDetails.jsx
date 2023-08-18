@@ -3,6 +3,8 @@ import cover_not_found from '../../images/cover_not_found.jpg'
 import { useLocation, useNavigate } from 'react-router-dom';
 import {FaArrowLeft} from 'react-icons/fa'
 import { useEffect, useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import Client from '../AxiosCreate';
 
 const URL = "https://openlibrary.org/works/";
 
@@ -12,6 +14,12 @@ function BookDetails() {
     const navigate = useNavigate()
     const book = location.state;
     const [desc, setDesc] = useState('');
+
+    const addToCart = () => {
+        let bookDetails = [ { "book_id":book.id, "title":book.title} ];
+        Client.post('',...bookDetails);
+        return ;
+    }
 
     const fetchDescription = async () => {
         const api_call = await fetch(`${URL}${location.state.id}.json`);
@@ -52,6 +60,7 @@ function BookDetails() {
                         <div className='book-details-item description'>
                             <span>{desc}.</span>
                         </div>
+                        <FaShoppingCart className='text-purple' size={35} onClick={addToCart}/>
                     </div>
                 </div>
             </div>

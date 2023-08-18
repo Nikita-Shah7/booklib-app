@@ -8,6 +8,10 @@
     gap: 3rem;
 }
 
+.heading{
+    font-size: 30px;
+}
+
 .book-item {
     padding: 3rem 2rem;
     border-radius: 4px;

@@ -5,6 +5,7 @@ import {ContextProvider} from './context';
 import Header from '../src/components/Header/Header'
 import BookList from './components/Booklist/Booklist';
 import BookDetails from '../src/components/BookDetails/BookDetails'
+import CartList from './components/CartList/CartList';
 import Home from '../src/pages/Home/Home'
 import About from '../src/pages/About/About'
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<BookList />} />
           <Route path='/About' element={<About />} />
           <Route path='/book/:id' element={<BookDetails />} />
+          <Route path='/cart' element={<CartList />} />
         </Routes>
       </Router>
     </ContextProvider>

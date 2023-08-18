@@ -1,10 +1,19 @@
 import './Booklist.css';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
+import Client from '../../components/AxiosCreate';
 
 
 function Book(book) {
     // console.log(book.id);
     // console.log(book.cover_img);
+
+    const addToCart = () => {
+        let bookDetails = [ { "book_id":book.id, "title":book.title} ];
+        Client.post('',...bookDetails);
+        return ;
+    }
+
     return (
         <div className='book-item flex flex-column flex-sb'>
             <Link to={`/book/${book.id}`} state={book}>
@@ -22,6 +31,7 @@ function Book(book) {
                     </div>
                 </div>
             </Link>
+            <FaShoppingCart className='text-purple' size={25} onClick={addToCart}/>
         </div>
     );
 }

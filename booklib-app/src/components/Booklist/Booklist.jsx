@@ -3,6 +3,10 @@ import cover_not_found from '../../images/cover_not_found.jpg'
 import Book from '../Booklist/Book';
 import { Context } from '../../context';
 import { useContext } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+
 
 const API_URL_IMG = "https://covers.openlibrary.org/b/id/"
 
@@ -22,7 +26,10 @@ function BookList() {
         <section className='booklist'>
             <div className='container'>
                 <div className='section-title'>
-                    <h2>{resultItem}</h2>
+                    <b className='heading'>{resultItem}</b>
+                    <Link to={'cart'}>
+                        <FaShoppingCart className='text-purple' size={25} />
+                    </Link>
                 </div>
                 <div className='booklist-content grid'>
                     {
